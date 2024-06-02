@@ -10,7 +10,7 @@ from src.mcqgenerator.mcqgenerator import generate_evaluate_chain
 from src.mcqgenerator.logger import logging
 
 #loading json file
-with open('Response.json', 'r') as file:
+with open('E:\GenAI\mcq_project\genaihindi\Response.json', 'r') as file:
     RESPONSE_JSON = json.load(file)
 
 
@@ -58,6 +58,7 @@ with st.form("user input"):
                 if isinstance(response, dict):
                     #Extract the quiz data from the response
                     quiz=response.get("quiz", None)
+                    quiz=quiz[quiz.find("\n"):]
                     if quiz is not None:
                         table_data=get_table_data(quiz)
                         if table_data is not None:

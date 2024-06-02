@@ -23,10 +23,10 @@ from langchain_anthropic import ChatAnthropic
 
 llm = ChatAnthropic(model="claude-3-sonnet-20240229", api_key=key)
 
-with open("/config/workspace/Response.json","r") as f:
-    RESPONSE_JSON=json.load(f)
+with open("E:\GenAI\mcq_project\genaihindi\Response.json","r") as f:
+    response_json=json.load(f)
 
-print(RESPONSE_JSON)
+print(response_json)
 
 TEMPLATE="""
 Text:{text}
@@ -36,7 +36,7 @@ Make sure the questions are not repeated and check all the questions to be confo
 Make sure to format your response like  RESPONSE_JSON below  and use it as a guide. \
 Ensure to make {number} MCQs
 ### RESPONSE_JSON
-{RESPONSE_JSON}
+{response_json}
 
 """
 
